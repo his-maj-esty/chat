@@ -11,7 +11,7 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { refetchMembersState, roomSelectedState } from "../../states/chat";
 import { NavBar } from "./navBar";
 
-const SERVER_URL = process.env.SERVER_URL;
+const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL;
 
 export function Chat() {
   const [initialMessages, setInitialMessages] = useState<Message[]>([]);
@@ -45,7 +45,7 @@ export function Chat() {
     const socket = io(SERVER_URL!, {
       withCredentials: true,
       extraHeaders: {
-        "Access-Control-Allow-Origin": process.env.FRONTEND_URL!,
+        "Access-Control-Allow-Origin": process.env.NEXT_PUBLIC_FRONTEND_URL!,
       },
     });
 
