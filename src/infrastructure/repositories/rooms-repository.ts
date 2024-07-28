@@ -35,7 +35,6 @@ export class RoomsRepository implements IRoomsRepository {
     const formattedUsers: UserSession[] = users.data.data.map((user: any) => ({
       username: user.attributes.username,
     }));
-    console.log("formattedUsers", formattedUsers);
     return formattedUsers;
   }
 }

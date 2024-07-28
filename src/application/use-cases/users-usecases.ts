@@ -34,7 +34,6 @@ export async function isExistingUserUseCase(
   username: string
 ): Promise<boolean> {
   const usersRepository = new UsersRepository();
-  console.log("username : ", username);
   const isExistingUser = await usersRepository.isExistingUser({ username });
   return isExistingUser;
 }

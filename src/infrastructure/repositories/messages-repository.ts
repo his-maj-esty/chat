@@ -13,7 +13,6 @@ export class MessageRepository implements IMessageRepository {
     const newMessage = await this._client.post("/chat-messages", {
       data: message,
     });
-    console.log("created message : ", newMessage.data.data);
     return newMessage.data.data.attributes as Message;
   }
 

@@ -28,7 +28,6 @@ export function Chat() {
         setInitialMessages([]);
 
         const response = await fetchMessages({ room: selectedRoom.room! });
-        console.log("initial messages", response.messages);
         setInitialMessages(response.messages);
         setUser(response.user);
       } catch (err: any) {
@@ -50,8 +49,6 @@ export function Chat() {
     });
 
     socket.on("connect", async () => {
-      console.log("connected to socket");
-
       await sendMessage({
         content: "",
         room: selectedRoom.room!,
@@ -66,7 +63,6 @@ export function Chat() {
     });
 
     socket.on(`${selectedRoom.room!}:message`, (data: { data: Message }) => {
-      console.log("received message", data);
       setInitialMessages((prev) => [...prev, data.data]);
     });
 

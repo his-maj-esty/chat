@@ -12,7 +12,6 @@ export class UsersRepository implements IUserRepository {
 
   async create(user: User): Promise<User> {
     const newUser = await this._client.post("/chat-users", { data: user });
-    console.log("created user : ", newUser);
     return newUser.data.data.attributes as User;
   }
 

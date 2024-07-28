@@ -48,6 +48,5 @@ export async function fetchRooms(): Promise<{
 
 export async function fetchUsersByRoom(room: string): Promise<UserSession[]> {
   const users = await getUsersByRoomUseCase({ room: room });
-  console.log("users", users);
   return users;
 }
